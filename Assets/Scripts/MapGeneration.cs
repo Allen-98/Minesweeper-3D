@@ -12,6 +12,9 @@ public class MapGeneration : MonoBehaviour
     public int row=5;
     public int column=5;
 
+    [Header("Mine Setting")]
+    public GameObject mine;
+    public int mineNumber=5;
 
 
     // Start is called before the first frame update
@@ -36,8 +39,15 @@ public class MapGeneration : MonoBehaviour
                 Vector3 pos = new Vector3(i, j, 0);
                 GameObject cube = Instantiate(defaultCube, pos, Quaternion.identity);
                 cube.transform.parent = map.transform;
+                cube.name = i + "," + j;
             }
         }
+
+    }
+
+    public void GenerateMines()
+    {
+
 
     }
 

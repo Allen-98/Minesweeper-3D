@@ -457,9 +457,9 @@ MonoBehaviour:
   normalCube: {fileID: 8514175670635068340, guid: d6aa20655cca5a24ab7871a947634f79, type: 3}
   cornerCube: {fileID: 7021563725236887168, guid: f9f243bd31342f843b0d33dddc71de91, type: 3}
   edgeCube: {fileID: 2169461624939800023, guid: ef69f504572ec784aa9116907683f49d, type: 3}
-  length: 3
-  width: 3
-  height: 3
+  length: 5
+  width: 5
+  height: 5
   mine: {fileID: 3357403992132102815, guid: 8d5bce6569a8b44449c6735dc95320df, type: 3}
   mineNumber: 5
 --- !u!1001 &578719247

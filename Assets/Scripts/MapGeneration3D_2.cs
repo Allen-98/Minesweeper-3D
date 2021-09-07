@@ -19,10 +19,6 @@ public class MapGeneration3D_2 : MonoBehaviour
     //public GameObject mine;
     public int mineNumber = 5;
 
-
-
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +55,6 @@ public class MapGeneration3D_2 : MonoBehaviour
 
     }
 
-
     public void CheckCube(int x, int y, int z)
     {
         Vector3 posC1 = new Vector3(x, y, z);
@@ -73,20 +68,33 @@ public class MapGeneration3D_2 : MonoBehaviour
     {
         GenerateMap();
 
-        for (int i = 0; i <= mineNumber; i++)
+        for (int i = 0; i < mineNumber; i++)
         {
-            int x = Random.Range(0, width);
-            int y = Random.Range(0, height);
-            int z = Random.Range(0, length);
-
-            GameObject o = cubeList[x, y, z];
-
-            o.transform.GetChild(0).gameObject.SetActive(false);
-            o.transform.GetChild(1).gameObject.SetActive(true);
+            RandomChoose();
 
         }
     }
 
+    public void RandomChoose()
+    {
+        int x = Random.Range(0, width);
+        int y = Random.Range(0, height);
+        int z = Random.Range(0, length);
+
+        GameObject o = cubeList[x, y, z];
+        BaseCube bc = o.GetComponent<BaseCube>();
+
+        if (bc.hasMine == false)
+        {
+            bc.hasMine = true;
+            bc.cube.SetActive(false);
+            bc.mine.SetActive(true);
+        }
+        else
+        {
+            RandomChoose();
+        }
+    }
 
 
 

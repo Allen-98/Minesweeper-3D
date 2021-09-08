@@ -73,6 +73,9 @@ public class MapGeneration3D_2 : MonoBehaviour
             RandomChoose();
 
         }
+
+        MinesCount();
+
     }
 
     public void RandomChoose()
@@ -93,6 +96,55 @@ public class MapGeneration3D_2 : MonoBehaviour
         else
         {
             RandomChoose();
+        }
+    }
+
+
+    public void MinesCount()
+    {
+        for (int h = 0; h < height; h++)
+        {
+            for (int w = 0; w < width; w++)
+            {
+                for (int l = 0; l < length; l++)
+                {
+                    GameObject cubeC2 = cubeList[w, h, l];
+
+                    for (int x = w - 1; x <= w + 1; x++)
+                    {
+                        if (x >= 0 && x < width)
+                        {
+                            for (int y = h - 1; y <= h + 1; y++)
+                            {
+                                if (y >= 0 && y < height)
+                                {
+                                    for (int z = l - 1; z <= l + 1; z++)
+                                    {
+                                        if (z >= 0 && z < length)
+                                        {
+                                            if (cubeList[x, y, z] != null)
+                                            {
+                                                if (cubeList[x, y, z].GetComponent<BaseCube>().hasMine)
+                                                {
+                                                    cubeC2.GetComponent<BaseCube>().neighbourMines += 1;
+
+                                                }
+                                            }
+                                        }
+
+                                    }
+
+                                }
+                            }
+                        }
+
+                    }
+
+                    cubeC2.GetComponent<BaseCube>().tmp.SetText(cubeC2.GetComponent<BaseCube>().neighbourMines.ToString());
+
+
+                }
+            }
         }
     }
 

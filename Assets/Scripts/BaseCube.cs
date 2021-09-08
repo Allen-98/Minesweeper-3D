@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BaseCube : MonoBehaviour
 {
 
     public GameObject cube;
     public GameObject mine;
+    public TextMeshProUGUI tmp;
     public bool hasMine = false;
 
     // Start is called before the first frame update
@@ -21,7 +23,17 @@ public class BaseCube : MonoBehaviour
         
     }
 
-
+    private void OnMouseDown()
+    {
+        if (hasMine)
+        {
+            return;
+        }
+        else
+        {
+            cube.SetActive(false);
+        }
+    }
 
 
 

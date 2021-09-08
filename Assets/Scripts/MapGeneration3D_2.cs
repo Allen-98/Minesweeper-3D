@@ -7,7 +7,7 @@ public class MapGeneration3D_2 : MonoBehaviour
 
     public GameObject map;
     public GameObject baseCube;
-    private GameObject[,,] cubeList;
+    public GameObject[,,] cubeList;
 
 
     [Header("Map Setting")]

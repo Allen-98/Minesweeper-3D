@@ -127,22 +127,15 @@ public class MapGeneration3D_2 : MonoBehaviour
                                                 if (cubeList[x, y, z].GetComponent<BaseCube>().hasMine)
                                                 {
                                                     cubeC2.GetComponent<BaseCube>().neighbourMines += 1;
-
                                                 }
                                             }
                                         }
-
                                     }
-
                                 }
                             }
                         }
-
                     }
-
                     cubeC2.GetComponent<BaseCube>().tmp.SetText(cubeC2.GetComponent<BaseCube>().neighbourMines.ToString());
-
-
                 }
             }
         }

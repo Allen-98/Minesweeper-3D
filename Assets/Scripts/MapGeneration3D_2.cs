@@ -19,6 +19,12 @@ public class MapGeneration3D_2 : MonoBehaviour
     //public GameObject mine;
     public int mineNumber = 5;
 
+
+    [Header("Game Setting")]
+    public GameObject gameOver;
+    public GameObject gameWin;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +35,12 @@ public class MapGeneration3D_2 : MonoBehaviour
 
     public void GenerateMap()
     {
+        if(gameWin.activeSelf || gameOver.activeSelf)
+        {
+            gameWin.SetActive(false);
+            gameOver.SetActive(false);
+        }
+
         if (map.GetComponentsInChildren<Transform>(true).Length <= 1)
         {
             Debug.Log("No children");
@@ -61,7 +73,13 @@ public class MapGeneration3D_2 : MonoBehaviour
         GameObject cubeC1 = Instantiate(baseCube, posC1, Quaternion.identity);
         cubeC1.transform.parent = map.transform;
         cubeC1.name = x + "," + y + "," + z;
+        cubeC1.GetComponent<BaseCube>().cubeCoordinates = new Vector3Int(x, y, z);
         cubeList[x, y, z] = cubeC1;
+    }
+
+    public void checkNeighbourCubes(Vector3Int cubeCoord)
+    {
+
     }
 
     public void GenerateMines()
@@ -109,7 +127,7 @@ public class MapGeneration3D_2 : MonoBehaviour
                 for (int l = 0; l < length; l++)
                 {
                     GameObject cubeC2 = cubeList[w, h, l];
-
+                    
                     for (int x = w - 1; x <= w + 1; x++)
                     {
                         if (x >= 0 && x < width)
@@ -141,6 +159,19 @@ public class MapGeneration3D_2 : MonoBehaviour
         }
     }
 
+
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        gameOver.SetActive(true);
+
+    }
+
+    public void GameWin()
+    {
+        Time.timeScale = 0f;
+        gameWin.SetActive(true);
+    }
 
 
 }

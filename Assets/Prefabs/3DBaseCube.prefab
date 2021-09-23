@@ -548,7 +548,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe76a992644618e4998373a77ab1bf85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseCube: {fileID: 6760585025899432756}
   cube: {fileID: 3776511250463851468}
   mine: {fileID: 1126625084412031922}
   tmp: {fileID: 1750944499}
   hasMine: 0
+  neighbourMines: 0

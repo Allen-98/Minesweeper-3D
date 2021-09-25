@@ -52,6 +52,7 @@ public class BaseCube : MonoBehaviour
         }
         else
         {
+            isOpened = true;
             if (neighbourMines > 0)
             {
                 cube.SetActive(false);
@@ -60,7 +61,7 @@ public class BaseCube : MonoBehaviour
             else
             {
                 baseCube.SetActive(false);
-                //mg.checkNeighbourCubes(cubeCoordinates);
+                mg.checkNeighbourCubes(cubeCoordinates);
             }
         }
     }

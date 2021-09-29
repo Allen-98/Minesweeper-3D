@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MapGeneration3D_2 : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class MapGeneration3D_2 : MonoBehaviour
     [Header("Mine Setting")]
     //public GameObject mine;
     public int mineNumber = 5;
+    private int totalMines;
+    public TextMeshProUGUI minesCount;
+    
 
 
     [Header("Game Setting")]
@@ -28,8 +32,19 @@ public class MapGeneration3D_2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        totalMines = mineNumber;
         cubeList = new GameObject[width, height, length];
-        GenerateMap();
+        //GenerateMap();
+        GenerateMines();
+        minesCount.SetText(mineNumber.ToString() + " / " + totalMines.ToString());
+    }
+
+    private void FixedUpdate()
+    {
+        if (mineNumber == 0)
+        {
+            GameWin();
+        }
     }
 
 
@@ -200,6 +215,13 @@ public class MapGeneration3D_2 : MonoBehaviour
     {
         Time.timeScale = 0f;
         gameWin.SetActive(true);
+    }
+
+    public void MinesCountMinus()
+    {
+        mineNumber -= 1;
+        minesCount.SetText(mineNumber.ToString() + " / " + totalMines.ToString());
+
     }
 
 

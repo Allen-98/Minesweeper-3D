@@ -13,6 +13,7 @@ public class BaseCube : MonoBehaviour
     public bool isOpened = false;
     public MapGeneration3D_2 mg;
     public bool isMarked = false;
+    
 
     public int neighbourMines = 0;
 
@@ -33,12 +34,12 @@ public class BaseCube : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKey(KeyCode.LeftAlt))
         {
             OpenCube();
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !Input.GetKey(KeyCode.LeftAlt))
         {
             MarkMine();
         }
@@ -75,6 +76,7 @@ public class BaseCube : MonoBehaviour
             isMarked = true;
 
             mine.GetComponent<MeshRenderer>().material.color = Color.blue;
+            mg.MinesCountMinus();
         }
     }
 

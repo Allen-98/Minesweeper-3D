@@ -9,7 +9,7 @@ public class MapGeneration3D_2 : MonoBehaviour
     public GameObject map;
     public GameObject baseCube;
     public GameObject[,,] cubeList;
-
+    GameData gd;
 
     [Header("Map Setting")]
     public int length = 5;
@@ -32,6 +32,15 @@ public class MapGeneration3D_2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gd = GameObject.Find("GameData").GetComponent<GameData>();
+        if (gd != null)
+        {
+            length = gd.length;
+            width = gd.width;
+            height = gd.height;
+            mineNumber = gd.mines;
+        }
+
         totalMines = mineNumber;
         cubeList = new GameObject[width, height, length];
         //GenerateMap();

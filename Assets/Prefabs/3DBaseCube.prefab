@@ -553,4 +553,8 @@ MonoBehaviour:
   mine: {fileID: 1126625084412031922}
   tmp: {fileID: 1750944499}
   hasMine: 0
+  isOpened: 0
+  mg: {fileID: 0}
+  isMarked: 0
   neighbourMines: 0
+  cubeCoordinates: {x: 0, y: 0, z: 0}

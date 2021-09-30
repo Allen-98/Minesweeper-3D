@@ -6,10 +6,24 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameData gd;
+
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        if (gd.length != 0 && gd.width != 0 && gd.height != 0 && gd.mines != 0)
+        {
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            gd.length = 5;
+            gd.width = 5;
+            gd.height = 5;
+            gd.mines = 5;
+            SceneManager.LoadScene(1);
+        }
+
     }
 
     public void QuitGame()

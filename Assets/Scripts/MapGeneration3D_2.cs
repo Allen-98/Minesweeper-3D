@@ -32,9 +32,11 @@ public class MapGeneration3D_2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gd = GameObject.Find("GameData").GetComponent<GameData>();
-        if (gd != null)
+        //DynamicGI.UpdateEnvironment();
+
+        if (GameObject.Find("GameData") != null)
         {
+            gd = GameObject.Find("GameData").GetComponent<GameData>();
             length = gd.length;
             width = gd.width;
             height = gd.height;

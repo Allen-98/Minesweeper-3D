@@ -77,6 +77,7 @@ public class BaseCube : MonoBehaviour
 
             mine.GetComponent<MeshRenderer>().material.color = Color.blue;
             mg.MinesCountMinus();
+            mg.MarkMineNumberChange(cubeCoordinates);
         }
     }
 

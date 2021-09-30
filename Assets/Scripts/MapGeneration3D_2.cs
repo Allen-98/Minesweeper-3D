@@ -203,7 +203,6 @@ public class MapGeneration3D_2 : MonoBehaviour
         }
     }
 
-
     public void GameOver()
     {
         Time.timeScale = 0f;
@@ -224,5 +223,46 @@ public class MapGeneration3D_2 : MonoBehaviour
 
     }
 
+    public void MarkMineNumberChange(Vector3Int cubeCoord)
+    {
+        int w = cubeCoord.x;
+        int h = cubeCoord.y;
+        int l = cubeCoord.z;
+
+        for (int x = w - 1; x <= w + 1; x++)
+        {
+            if (x >= 0 && x < width)
+            {
+                for (int y = h - 1; y <= h + 1; y++)
+                {
+                    if (y >= 0 && y < height)
+                    {
+                        for (int z = l - 1; z <= l + 1; z++)
+                        {
+                            if (z >= 0 && z < length)
+                            {
+                                GameObject otherCube = cubeList[x, y, z];
+                                BaseCube bc = otherCube.GetComponent<BaseCube>();
+                                if(bc.neighbourMines > 0)
+                                {
+                                    bc.neighbourMines -= 1;
+                                    bc.GetComponent<BaseCube>().tmp.SetText(bc.GetComponent<BaseCube>().neighbourMines.ToString());
+
+                                    if(bc.neighbourMines == 0)
+                                    {
+                                        bc.gameObject.SetActive(false);
+                                    }
+
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
 
 }

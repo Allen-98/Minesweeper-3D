@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MapGeneration3D_2 : MonoBehaviour
 {
@@ -172,7 +173,6 @@ public class MapGeneration3D_2 : MonoBehaviour
         }
     }
 
-
     public void MinesCount()
     {
         for (int h = 0; h < height; h++)
@@ -274,6 +274,11 @@ public class MapGeneration3D_2 : MonoBehaviour
         }
 
 
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }

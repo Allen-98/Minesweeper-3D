@@ -10,10 +10,10 @@ public class GameData : MonoBehaviour
     public TMP_InputField heightInput;
     public TMP_InputField mineInput;
 
-    public int length=5;
-    public int width=5;
-    public int height=5;
-    public int mines=5;
+    public int length=3;
+    public int width=3;
+    public int height=3;
+    public int mines=1;
 
 
     private void Awake()

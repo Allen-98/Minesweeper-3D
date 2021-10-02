@@ -26,6 +26,18 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void Tutorial()
+    {
+        gd.length = 3;
+        gd.width = 3;
+        gd.height = 3;
+        gd.mines = 1;
+        SceneManager.LoadScene(2);
+    }
+
+
+
+
     public void QuitGame()
     {
         Application.Quit();

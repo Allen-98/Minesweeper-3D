@@ -15,8 +15,8 @@ public class CameraMoving : MonoBehaviour
         
         if (Input.GetKey(KeyCode.Mouse1) && Input.GetKey(KeyCode.LeftAlt))
         {
-            transform.Translate(Vector3.left * (mouse_x * 15f) * Time.deltaTime);
-            transform.Translate(Vector3.up * (mouse_y * 15f) * Time.deltaTime);
+            transform.Translate(Vector3.left * (mouse_x * 30f) * Time.deltaTime);
+            transform.Translate(Vector3.up * (mouse_y * 30f) * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.Mouse0) && Input.GetKey(KeyCode.LeftAlt))
         {

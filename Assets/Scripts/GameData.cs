@@ -10,26 +10,29 @@ public class GameData : MonoBehaviour
     public TMP_InputField heightInput;
     public TMP_InputField mineInput;
 
-    public int length=3;
-    public int width=3;
-    public int height=3;
-    public int mines=1;
+    public int length=5;
+    public int width=5;
+    public int height=5;
+    public int mines=5;
 
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(transform.gameObject);
-    }
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        //lengthInput = GameObject.Find("Length Input").GetComponent<TMP_InputField>();
+        //widthInput = GameObject.Find("Width Input").GetComponent<TMP_InputField>();
+        //heightInput = GameObject.Find("Height Input").GetComponent<TMP_InputField>();
+        //mineInput = GameObject.Find("Mines Input").GetComponent<TMP_InputField>();
+
+        DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameObject.Find("Game Manager"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void LengthInputChange()

@@ -6,7 +6,14 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
+
     public GameData gd;
+
+    private void Start()
+    {
+        //gd = GameObject.Find("GameData").GetComponent<GameData>();
+    
+    }
 
 
     public void StartGame()

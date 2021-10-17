@@ -35,6 +35,8 @@ public class MapGeneration3D_2 : MonoBehaviour
     {
         //DynamicGI.UpdateEnvironment();
 
+
+
         if (GameObject.Find("GameData") != null)
         {
             gd = GameObject.Find("GameData").GetComponent<GameData>();
@@ -43,6 +45,11 @@ public class MapGeneration3D_2 : MonoBehaviour
             height = gd.height;
             mineNumber = gd.mines;
         }
+
+        map.transform.position = new Vector3(width / 2, height / 2, length / 2);
+
+
+
 
         totalMines = mineNumber;
         cubeList = new GameObject[width, height, length];

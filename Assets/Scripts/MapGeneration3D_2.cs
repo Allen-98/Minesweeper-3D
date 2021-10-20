@@ -33,9 +33,6 @@ public class MapGeneration3D_2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //DynamicGI.UpdateEnvironment();
-
-
 
         if (GameObject.Find("GameData") != null)
         {
@@ -47,9 +44,6 @@ public class MapGeneration3D_2 : MonoBehaviour
         }
 
         map.transform.position = new Vector3(width / 2, height / 2, length / 2);
-
-
-
 
         totalMines = mineNumber;
         cubeList = new GameObject[width, height, length];
@@ -286,6 +280,13 @@ public class MapGeneration3D_2 : MonoBehaviour
     public void BackToMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void TryAgain()
+    {
+        mineNumber = 1;
+        GenerateMap();
+        GenerateMines();
     }
 
 }

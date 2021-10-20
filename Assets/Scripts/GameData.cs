@@ -18,11 +18,6 @@ public class GameData : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        //lengthInput = GameObject.Find("Length Input").GetComponent<TMP_InputField>();
-        //widthInput = GameObject.Find("Width Input").GetComponent<TMP_InputField>();
-        //heightInput = GameObject.Find("Height Input").GetComponent<TMP_InputField>();
-        //mineInput = GameObject.Find("Mines Input").GetComponent<TMP_InputField>();
-
         DontDestroyOnLoad(this);
     }
 

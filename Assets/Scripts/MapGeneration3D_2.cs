@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MapGeneration3D_2 : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class MapGeneration3D_2 : MonoBehaviour
     public GameObject baseCube;
     public GameObject[,,] cubeList;
     GameData gd;
+    public Slider slider;
 
     [Header("Map Setting")]
     public int length = 5;
@@ -22,8 +24,6 @@ public class MapGeneration3D_2 : MonoBehaviour
     public int mineNumber = 5;
     private int totalMines;
     public TextMeshProUGUI minesCount;
-    
-
 
     [Header("Game Setting")]
     public GameObject gameOver;
@@ -288,5 +288,44 @@ public class MapGeneration3D_2 : MonoBehaviour
         GenerateMap();
         GenerateMines();
     }
+
+    public void AddSpace(float distance)
+    {
+        for (int h = 0; h < height; h++)
+        {
+            for (int w = 0; w < width; w++)
+            {
+                for (int l = 0; l < length; l++)
+                {
+                    GameObject cube = cubeList[w, h, l];
+                    if (w > 0 || h > 0 || l > 0)
+                    {
+                        cube.transform.Translate(w*distance, h*distance, l*distance);
+                    }
+                }
+            }
+        }
+    }
+
+    public void ResetPos()
+    {
+        if(slider.value != 0)
+        {
+            slider.value = 0;
+        }
+
+        for (int h = 0; h < height; h++)
+        {
+            for (int w = 0; w < width; w++)
+            {
+                for (int l = 0; l < length; l++)
+                {
+                    GameObject cube = cubeList[w, h, l];
+                    cube.transform.position = new Vector3(w, h, l);
+                }
+            }
+        }
+    }
+
 
 }

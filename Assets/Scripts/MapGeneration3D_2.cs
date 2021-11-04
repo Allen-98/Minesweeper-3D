@@ -165,7 +165,7 @@ public class MapGeneration3D_2 : MonoBehaviour
         if (bc.hasMine == false)
         {
             bc.hasMine = true;
-            bc.cube.SetActive(false);
+            bc.cube.SetActive(true);
             bc.mine.SetActive(true);
         }
         else
@@ -255,6 +255,7 @@ public class MapGeneration3D_2 : MonoBehaviour
                             {
                                 GameObject otherCube = cubeList[x, y, z];
                                 BaseCube bc = otherCube.GetComponent<BaseCube>();
+
                                 if(bc.neighbourMines > 0)
                                 {
                                     bc.neighbourMines -= 1;

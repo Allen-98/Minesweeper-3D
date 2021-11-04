@@ -74,6 +74,7 @@ public class BaseCube : MonoBehaviour
         {
             hasMine = false;
             isMarked = true;
+            cube.SetActive(false);
 
             mine.GetComponent<MeshRenderer>().material.color = Color.blue;
             mg.MinesCountMinus();

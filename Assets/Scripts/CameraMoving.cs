@@ -5,13 +5,13 @@ using UnityEngine;
 public class CameraMoving : MonoBehaviour
 {
 
-    public Transform target;//获取旋转目标
+    public Transform target;
 
 
     private void LateUpdate()
     {
-        var mouse_x = Input.GetAxis("Mouse X");//获取鼠标X轴移动
-        var mouse_y = -Input.GetAxis("Mouse Y");//获取鼠标Y轴移动
+        var mouse_x = Input.GetAxis("Mouse X");
+        var mouse_y = -Input.GetAxis("Mouse Y");
         
         if (Input.GetKey(KeyCode.Mouse1) && Input.GetKey(KeyCode.LeftAlt))
         {

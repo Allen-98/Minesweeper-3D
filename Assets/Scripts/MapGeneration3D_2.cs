@@ -232,7 +232,10 @@ public class MapGeneration3D_2 : MonoBehaviour
     {
         mineNumber -= 1;
         minesCount.SetText(mineNumber.ToString() + " / " + totalMines.ToString());
-
+        if (mineNumber == 0)
+        {
+            GameWin();
+        }
     }
 
     public void MarkMineNumberChange(Vector3Int cubeCoord)

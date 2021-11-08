@@ -49,6 +49,7 @@ public class BaseCube : MonoBehaviour
     {
         if (hasMine)
         {
+            cube.SetActive(false);
             mg.GameOver();
         }
         else
